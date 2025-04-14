@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiP Community - Tech Training & Development</title>
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #ff6b4a;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .hero {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #ff5a36;
+            transform: translateY(-2px);
+        }
+        section {
+            padding: 60px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark);
+            font-size: 36px;
+        }
+        .training-programs {
+            background-color: #f8f9fa;
+        }
+        .program-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .program-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        .program-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        .program-content {
+            padding: 20px;
+        }
+        .program-content h3 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        .upcoming-events table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        .upcoming-events th, 
+        .upcoming-events td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .upcoming-events th {
+            background-color: var(--dark);
+            color: white;
+        }
+        .upcoming-events tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .event-highlight {
+            background-color: #fff8e1 !important;
+        }
+        .articles {
+            background-color: #f8f9fa;
+        }
+        .article-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .article-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .article-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        .article-content {
+            padding: 20px;
+        }
+        .article-content h3 {
+            margin-top: 0;
+        }
+        .article-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .article-tag {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .membership {
+            text-align: center;
+        }
+        .membership-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .benefit-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .benefit-card h3 {
+            color: var(--primary);
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .social-links {
+            margin-bottom: 30px;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+        .copyright {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">PiP<span>Community</span></a>
+                <ul>
+                    <li><a href="#programs">Training Programs</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#articles">Articles</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Advance Your Tech Career</h1>
+            <p>Join our community of developers, learn in-demand skills, and connect with industry professionals through our training programs and events.</p>
+            <a href="#membership" class="btn">Join Our Community</a>
+        </div>
+    </section>
+
+    <section id="programs" class="training-programs">
+        <div class="container">
+            <h2>Our Training Programs</h2>
+            <div class="program-cards">
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('webdev.jpg');"></div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span>12 Weeks</span>
+                            <span>Online</span>
+                        </div>
+                        <h3>Full-Stack Web Development</h3>
+                        <p>Master modern web development with HTML, CSS, JavaScript, React, Node.js, and MongoDB.</p>
+                        <div class="program-meta">
+                            <span>Next Cohort: June 5, 2025</span>
+                            <span class="price">$899</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('data-science.jpg');"></div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span>10 Weeks</span>
+                            <span>Hybrid</span>
+                        </div>
+                        <h3>Data Science Fundamentals</h3>
+                        <p>Learn Python, Pandas, NumPy, and machine learning basics for data analysis and visualization.</p>
+                        <div class="program-meta">
+                            <span>Next Cohort: July 10, 2025</span>
+                            <span class="price">$799</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url('cybersecurity.jpg');"></div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span>8 Weeks</span>
+                            <span>In-Person</span>
+                        </div>
+                        <h3>Cybersecurity Essentials</h3>
+                        <p>Understand security principles, ethical hacking, and how to protect systems from threats.</p>
+                        <div class="program-meta">
+                            <span>Next Cohort: August 15, 2025</span>
+                            <span class="price">$699</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="upcoming-events">
+        <div class="container">
+            <h2>Upcoming Events</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Event</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="event-highlight">
+                        <td>May 15, 2025</td>
+                        <td>Tech Career Fair 2025</td>
+                        <td>Convention Center</td>
+                        <td>Networking</td>
+                        <td>Free</td>
+                    </tr>
+                    <tr>
+                        <td>May 20, 2025</td>
+                        <td>React Workshop</td>
+                        <td>Online</td>
+                        <td>Workshop</td>
+                        <td>$49</td>
+                    </tr>
+                    <tr>
+                        <td>June 1, 2025</td>
+                        <td>AI & Machine Learning Conference</td>
+                        <td>Tech Hub</td>
+                        <td>Conference</td>
+                        <td>$199</td>
+                    </tr>
+                    <tr>
+                        <td>June 10, 2025</td>
+                        <td>Git & GitHub Masterclass</td>
+                        <td>Online</td>
+                        <td>Workshop</td>
+                        <td>$29</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="articles" class="articles">
+        <div class="container">
+            <h2>Latest Articles</h2>
+            <div class="article-cards">
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('article1.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>May 1, 2025</span>
+                            <span>•</span>
+                            <span>10 min read</span>
+                        </div>
+                        <h3>Getting Started with React Hooks</h3>
+                        <p>Learn how to use React Hooks to simplify your functional components and manage state effectively.</p>
+                        <div>
+                            <span class="article-tag">React</span>
+                            <span class="article-tag">Frontend</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('article2.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>April 25, 2025</span>
+                            <span>•</span>
+                            <span>8 min read</span>
+                        </div>
+                        <h3>Python for Data Analysis: Pandas Basics</h3>
+                        <p>A beginner's guide to using Pandas for data manipulation and analysis in Python.</p>
+                        <div>
+                            <span class="article-tag">Python</span>
+                            <span class="article-tag">Data Science</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-img" style="background-image: url('article3.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>April 18, 2025</span>
+                            <span>•</span>
+                            <span>12 min read</span>
+                        </div>
+                        <h3>Building Secure APIs with Node.js</h3>
+                        <p>Best practices for creating secure RESTful APIs using Node.js and Express.</p>
+                        <div>
+                            <span class="article-tag">Node.js</span>
+                            <span class="article-tag">Backend</span>
+                            <span class="article-tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="membership">
+        <div class="container">
+            <h2>Community Membership</h2>
+            <p>Join our community to get access to exclusive resources, discounts, and networking opportunities.</p>
+            
+            <div class="membership-benefits">
+                <div class="benefit-card">
+                    <h3>Basic</h3>
+                    <p>Free</p>
+                    <ul style="text-align: left; list-style-type: none; padding: 0;">
+                        <li>✓ Access to free events</li>
+                        <li>✓ Community forum</li>
+                        <li>✓ Newsletter</li>
+                        <li>✗ Discounts on programs</li>
+                        <li>✗ Exclusive content</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3>Pro</h3>
+                    <p>$19/month</p>
+                    <ul style="text-align: left; list-style-type: none; padding: 0;">
+                        <li>✓ All Basic benefits</li>
+                        <li>✓ 15% off all programs</li>
+                        <li>✓ Exclusive webinars</li>
+                        <li>✓ Early event registration</li>
+                        <li>✗ 1-on-1 mentoring</li>
+                    </ul>
+                </div>
+                <div class="benefit-card">
+                    <h3>Premium</h3>
+                    <p>$49/month</p>
+                    <ul style="text-align: left; list-style-type: none; padding: 0;">
+                        <li>✓ All Pro benefits</li>
+                        <li>✓ 25% off all programs</li>
+                        <li>✓ Monthly 1-on-1 mentoring</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Exclusive job board</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 PiP Community. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
